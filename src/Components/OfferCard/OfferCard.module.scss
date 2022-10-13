@@ -1,6 +1,50 @@
 .card{
-    background-color: rgb(237, 137, 137);
+    background-color: white;
     height: 350px;
     gap: 15px;
-    border-radius: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+
+    &:hover{
+        -webkit-box-shadow: 7px 10px 19px -10px rgba(0,0,0,0.71);
+        -moz-box-shadow: 7px 10px 19px -10px rgba(0,0,0,0.71);
+        box-shadow: 7px 10px 19px -10px rgba(0,0,0,0.71);
+    }
+
+    .headerSection{
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        justify-content: space-between;
+    }
+    .imageContainer{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+
+        .image{
+            flex-shrink: 1;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+
+    .mainInfo{
+        .title{
+            padding: 15px 10px 15px 10px;
+            font-size: 22px;
+        }
+
+        .line{
+            height: 1px;
+            background-color: rgb(215, 215, 215);
+            width: 85%;
+            margin: 0 auto;
+        }
+    }
 }
