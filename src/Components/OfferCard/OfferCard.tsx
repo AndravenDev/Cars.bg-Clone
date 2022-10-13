@@ -1,3 +1,4 @@
+import styles from "./OfferCard.module.scss";
 export const OfferCard = () => {
-  return <p>Card</p>;
+  return <div className={styles.card}></div>;
 };
