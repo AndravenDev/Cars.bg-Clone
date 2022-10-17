@@ -9,5 +9,6 @@ export interface Listing{
     miledge: number,
     description: string,
     publisher: string,
-    location: string
+    location: string,
+    price: number
 }

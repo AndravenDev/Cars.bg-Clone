@@ -2,6 +2,7 @@
     background-color: white;
     height: 435px;
     border-radius: 7px;
+    position: relative;
     cursor: pointer;
 
     &:hover{
@@ -31,6 +32,20 @@
             min-width: 100%;
             min-height: 100%;
         }
+    }
+
+    .price{
+        position: absolute;
+        padding: 7px;
+        background-color: white;
+        border: 1px solid red;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: 600;
+
+        z-index: 999;
+        bottom: 185px;
+        right: 10px;
     }
 
     .mainInfo{

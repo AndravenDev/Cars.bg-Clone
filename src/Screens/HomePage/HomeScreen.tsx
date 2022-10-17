@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Filters } from "../../Components/Filter/FIlters";
 import { OfferCard } from "../../Components/OfferCard/OfferCard";
 import { Listing } from "../../Interfaces";
 import styles from "./HomePage.module.scss";
@@ -18,12 +19,16 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div className={styles.homePage}>
-      {!isLoading
-        ? listings.map((x) => {
-            return <OfferCard key={x.carId} listing={x} />;
-          })
-        : null}
+    <div className={styles.homePageWrapper}>
+      <div className={styles.prevSearches}>Предишни търсения</div>
+      <Filters />
+      <div className={styles.cards}>
+        {!isLoading
+          ? listings.map((x) => {
+              return <OfferCard key={x.carId} listing={x} />;
+            })
+          : null}
+      </div>
     </div>
   );
 };

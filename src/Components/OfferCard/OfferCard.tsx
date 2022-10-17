@@ -9,7 +9,11 @@ interface OfferCardProps {
 export const OfferCard = ({ listing }: OfferCardProps) => {
   const formatDate = Moment(listing.publishedDate).format("MMM Do YY");
   const year = Moment(listing.produced).format("YYYY");
-  console.log(listing);
+
+  function numberWithCommas(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.headerSection}>
@@ -22,7 +26,7 @@ export const OfferCard = ({ listing }: OfferCardProps) => {
       <div className={styles.imageContainer}>
         <img className={styles.image} alt="cool car" src={listing.pictureUrl} />
       </div>
-
+      <div className={styles.price}>{numberWithCommas(listing.price)} лв.</div>
       <div className={styles.mainInfo}>
         <div className={styles.title}>{listing.title}</div>
         <div className={styles.line}></div>

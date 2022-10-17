@@ -1,6 +1,18 @@
-.homePage{
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    gap: 15px;
+.homePageWrapper{
+    padding: 20px;
+
+    .prevSearches{
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid gray;
+        font-size: 19px;
+        color: rgb(37, 37, 37);
+    }
+    
+    .cards{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: 15px;
+    }
 }
