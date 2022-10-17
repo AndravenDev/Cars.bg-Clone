@@ -20,7 +20,7 @@ export const HomePage = () => {
 
   return (
     <div className={styles.homePageWrapper}>
-      <div className={styles.prevSearches}>Предишни търсения</div>
+      <div className={styles.prevSearches}>Предишни търсения (4)</div>
       <Filters />
       <div className={styles.cards}>
         {!isLoading
