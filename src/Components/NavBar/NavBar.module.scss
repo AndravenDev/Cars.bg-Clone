@@ -1,4 +1,31 @@
 .navbar{
     background: rgb(255, 122, 0);
     height: 64px;
+
+    .navIcons{
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+
+        & span{
+            display: flex;
+        }
+
+        .hamburger{
+            margin-right: 30px;
+        }
+
+        .logo{
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .fav{
+            margin-right: 20px;
+        }
+
+        .sortIcon{
+            margin-right: 20px;
+        }
+    }
 }

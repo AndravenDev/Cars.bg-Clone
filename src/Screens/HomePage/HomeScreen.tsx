@@ -3,6 +3,7 @@ import { Filters } from "../../Components/Filter/FIlters";
 import { OfferCard } from "../../Components/OfferCard/OfferCard";
 import { Listing } from "../../Interfaces";
 import styles from "./HomePage.module.scss";
+import HistoryIcon from "@mui/icons-material/History";
 
 export const HomePage = () => {
   const [listings, setListings] = useState<Listing[]>([]);
@@ -20,7 +21,10 @@ export const HomePage = () => {
 
   return (
     <div className={styles.homePageWrapper}>
-      <div className={styles.prevSearches}>Предишни търсения (4)</div>
+      <div className={styles.prevSearches}>
+        <HistoryIcon className={styles.historyIcon} />
+        Предишни търсения (4)
+      </div>
       <Filters />
       <div className={styles.cards}>
         {!isLoading
