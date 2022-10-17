@@ -6,7 +6,8 @@ export interface Listing{
     title: string,
     produced: Date,
     fuel: string,
-    mileage: number,
+    miledge: number,
     description: string,
-    publisher: string
+    publisher: string,
+    location: string
 }
