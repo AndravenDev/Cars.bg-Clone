@@ -3,6 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import { FilterStrategy } from "./FilterDialogInterfaces/FilterStrategy";
 import {
   BodyTypeFilter,
   BrandFilter,
@@ -24,23 +25,8 @@ interface ModalProps {
   currentFilter: string;
 }
 
-interface Strategy {
-  bodyType: () => JSX.Element;
-  brand: () => JSX.Element;
-  fuel: () => JSX.Element;
-  gearbox: () => JSX.Element;
-  price: () => JSX.Element;
-  year: () => JSX.Element;
-  location: () => JSX.Element;
-  color: () => JSX.Element;
-  doorCount: () => JSX.Element;
-  horsepower: () => JSX.Element;
-  publishedDate: () => JSX.Element;
-  condition: () => JSX.Element;
-}
-
 const getFilterComponent = (currentFilter: string) => {
-  const filters: Strategy = {
+  const filters: FilterStrategy = {
     bodyType: () => <BodyTypeFilter />,
     brand: () => <BrandFilter />,
     fuel: () => <FuelFilter />,
@@ -54,7 +40,7 @@ const getFilterComponent = (currentFilter: string) => {
     publishedDate: () => <PublishDateFilter />,
     condition: () => <ConditionFilter />,
   };
-  return filters[currentFilter as keyof Strategy];
+  return filters[currentFilter as keyof FilterStrategy];
 };
 
 export const Modal = ({ isOpen, onClose, currentFilter }: ModalProps) => {
