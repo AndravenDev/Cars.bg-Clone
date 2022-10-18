@@ -4,10 +4,15 @@ import { OfferCard } from "../../Components/OfferCard/OfferCard";
 import { Listing } from "../../Interfaces";
 import styles from "./HomePage.module.scss";
 import HistoryIcon from "@mui/icons-material/History";
+import { useFilters } from "../../Context/filter-context";
 
 export const HomePage = () => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [isLoading, setIsloading] = useState(true);
+
+  const filters = useFilters();
+
+  console.log(filters.filters);
 
   useEffect(() => {
     setIsloading(true);
