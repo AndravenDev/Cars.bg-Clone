@@ -5,7 +5,6 @@ import { Modal } from "../Dialog/Modal";
 import styles from "./Filters.module.scss";
 export const Filters = () => {
   const filters = [
-    { label: "Automobiles", name: "automobiles" },
     { label: "Body Type", name: "bodyType" },
     { label: "Brand", name: "brand" },
     { label: "Fuel", name: "fuel" },
@@ -13,13 +12,10 @@ export const Filters = () => {
     { label: "Price", name: "price" },
     { label: "Year", name: "year" },
     { label: "Location", name: "location" },
-    { label: "Form", name: "form" },
     { label: "Color", name: "color" },
     { label: "Door Count", name: "doorCount" },
-    { label: "Power", name: "power" },
-    { label: "Extras", name: "extras" },
-    { label: "Steering", name: "steering" },
-    { label: "Published", name: "published" },
+    { label: "Horsepower", name: "horsepower" },
+    { label: "Published", name: "publishedDate" },
     { label: "Condition", name: "condition" },
   ];
 

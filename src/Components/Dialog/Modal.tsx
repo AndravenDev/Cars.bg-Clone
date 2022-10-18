@@ -3,8 +3,20 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { PriceFilter } from "./FilterStrategies/PriceFilter";
-import { BodyTypeFilter } from "./FilterStrategies/BodyTypeFilter";
+import {
+  BodyTypeFilter,
+  BrandFilter,
+  FuelFilter,
+  GearboxFilter,
+  PriceFilter,
+  YearFilter,
+  LocationFilter,
+  ColorFilter,
+  DoorCountFilter,
+  HorsepowerFilter,
+  PublishDateFilter,
+  ConditionFilter,
+} from "./FilterStrategies";
 
 interface ModalProps {
   isOpen: boolean;
@@ -14,13 +26,33 @@ interface ModalProps {
 
 interface Strategy {
   bodyType: () => JSX.Element;
+  brand: () => JSX.Element;
+  fuel: () => JSX.Element;
+  gearbox: () => JSX.Element;
   price: () => JSX.Element;
+  year: () => JSX.Element;
+  location: () => JSX.Element;
+  color: () => JSX.Element;
+  doorCount: () => JSX.Element;
+  horsepower: () => JSX.Element;
+  publishedDate: () => JSX.Element;
+  condition: () => JSX.Element;
 }
 
 const getFilterComponent = (currentFilter: string) => {
   const filters: Strategy = {
     bodyType: () => <BodyTypeFilter />,
+    brand: () => <BrandFilter />,
+    fuel: () => <FuelFilter />,
+    gearbox: () => <GearboxFilter />,
     price: () => <PriceFilter />,
+    year: () => <YearFilter />,
+    location: () => <LocationFilter />,
+    color: () => <ColorFilter />,
+    doorCount: () => <DoorCountFilter />,
+    horsepower: () => <HorsepowerFilter />,
+    publishedDate: () => <PublishDateFilter />,
+    condition: () => <ConditionFilter />,
   };
   return filters[currentFilter as keyof Strategy];
 };
