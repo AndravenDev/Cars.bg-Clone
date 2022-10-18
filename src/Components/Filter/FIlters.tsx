@@ -5,22 +5,22 @@ import { Modal } from "../Dialog/Modal";
 import styles from "./Filters.module.scss";
 export const Filters = () => {
   const filters = [
-    "Automobiles",
-    "Coupe",
-    "Brand",
-    "Fuel",
-    "Gearbox",
-    "Price",
-    "Year",
-    "Location",
-    "From",
-    "Color",
-    "Door Count",
-    "Power",
-    "Extras",
-    "Steering",
-    "Published",
-    "Condition",
+    { label: "Automobiles", name: "automobiles" },
+    { label: "Body Type", name: "bodyType" },
+    { label: "Brand", name: "brand" },
+    { label: "Fuel", name: "fuel" },
+    { label: "Gearbox", name: "gearbox" },
+    { label: "Price", name: "price" },
+    { label: "Year", name: "year" },
+    { label: "Location", name: "location" },
+    { label: "Form", name: "form" },
+    { label: "Color", name: "color" },
+    { label: "Door Count", name: "doorCount" },
+    { label: "Power", name: "power" },
+    { label: "Extras", name: "extras" },
+    { label: "Steering", name: "steering" },
+    { label: "Published", name: "published" },
+    { label: "Condition", name: "condition" },
   ];
 
   const filterContext = useFilters();
@@ -37,12 +37,12 @@ export const Filters = () => {
       {filters.map((filter) => {
         return (
           <Chip
-            key={filter}
-            label={filter}
+            key={filter.name}
+            label={filter.label}
             className={styles.chip}
             onClick={() => {
               setOpen(true);
-              setCurrentFilter(filter.toLocaleLowerCase());
+              setCurrentFilter(filter.name);
               filterContext.setFilters({ price: [100, 2000] });
             }}
           ></Chip>
