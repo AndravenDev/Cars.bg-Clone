@@ -5,7 +5,7 @@ import styles from "./Filters.module.scss";
 import Button from "@mui/material/Button";
 import { useFilters } from "../../Context/filter-context";
 
-export const Filters = () => {
+export const FiltersRow = () => {
   const filters = [
     { label: "Body Type", name: "bodyType" },
     { label: "Brand", name: "brand" },

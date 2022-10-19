@@ -25,13 +25,13 @@ export const PriceFilter = () => {
   };
 
   return (
-    <Box sx={{ width: 500 }}>
+    <Box sx={{ width: 350, padding: "40px" }}>
       <Slider
         sx={{ paddingTop: "80px" }}
         getAriaLabel={() => "Price range"}
         value={value}
         onChange={handleChange}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="on"
         min={0}
         max={100000}
       />

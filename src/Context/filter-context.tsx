@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
-interface Filters {
+export interface Filters {
   price: any | null;
 }
 

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Filters } from "../../Components/Filter/FIlters";
 import { OfferCard } from "../../Components/OfferCard/OfferCard";
 import { Listing } from "../../Interfaces";
 import styles from "./HomePage.module.scss";
 import HistoryIcon from "@mui/icons-material/History";
-import { useFilters } from "../../Context/filter-context";
+import { Filters, useFilters } from "../../Context/filter-context";
+import { FiltersRow } from "../../Components/Filter/FIlters";
 
 export const HomePage = () => {
   const [listings, setListings] = useState<Listing[]>([]);
@@ -14,23 +14,31 @@ export const HomePage = () => {
 
   console.log(filters.filters);
 
+  const applyFilters = (listings: Listing[], filters?: Filters): Listing[] => {
+    let result: Listing[] = listings;
+
+    if (filters) {
+      for (const filter in filters) {
+        const currentFilter = filters[filter as keyof typeof filters];
+        if (currentFilter !== null) {
+          result = listings.filter(currentFilter);
+          console.log("nakraq ", result);
+        }
+      }
+    }
+
+    return result;
+  };
+
   useEffect(() => {
     setIsloading(true);
     fetch("https://localhost:7133/cars")
       .then((data) => data.json())
       .then((res: Listing[]) => {
-        const filterz = filters.filters;
+        const currentFilters = filters.filters;
 
-        let result: Listing[] = res;
+        setListings(applyFilters(res, currentFilters));
 
-        for (const filter in filterz) {
-          const currentFilter = filterz[filter as keyof typeof filterz];
-          if (currentFilter !== null) {
-            result = res.filter(currentFilter);
-            console.log("nakraq ", result);
-          }
-        }
-        setListings(result);
         setIsloading(false);
       });
   }, [filters.filters]);
@@ -41,7 +49,7 @@ export const HomePage = () => {
         <HistoryIcon className={styles.historyIcon} />
         Предишни търсения (4)
       </div>
-      <Filters />
+      <FiltersRow />
       <div className={styles.cards}>
         {!isLoading
           ? listings.map((x) => {
