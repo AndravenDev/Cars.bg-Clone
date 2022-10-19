@@ -1,6 +1,4 @@
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { FilterStrategy } from "./FilterDialogInterfaces/FilterStrategy";
@@ -50,10 +48,6 @@ export const Modal = ({ isOpen, onClose, currentFilter }: ModalProps) => {
       <DialogContent>
         {currentFilter ? getFilterComponent(currentFilter)() : null}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button onClick={onClose}>Subscribe</Button>
-      </DialogActions>
     </Dialog>
   );
 };

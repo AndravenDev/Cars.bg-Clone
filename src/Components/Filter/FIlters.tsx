@@ -1,6 +1,5 @@
 import Chip from "@mui/material/Chip";
 import { useState } from "react";
-import { useFilters } from "../../Context/filter-context";
 import { Modal } from "../Dialog/Modal";
 import styles from "./Filters.module.scss";
 export const Filters = () => {
@@ -19,7 +18,6 @@ export const Filters = () => {
     { label: "Condition", name: "condition" },
   ];
 
-  const filterContext = useFilters();
   const [open, setOpen] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("");
 
@@ -39,7 +37,6 @@ export const Filters = () => {
             onClick={() => {
               setOpen(true);
               setCurrentFilter(filter.name);
-              filterContext.setFilters({ price: [100, 2000] });
             }}
           ></Chip>
         );

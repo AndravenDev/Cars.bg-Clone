@@ -12,17 +12,26 @@ export const HomePage = () => {
 
   const filters = useFilters();
 
-  console.log(filters.filters);
-
   useEffect(() => {
     setIsloading(true);
     fetch("https://localhost:7133/cars")
       .then((data) => data.json())
-      .then((res) => {
-        setListings(res);
+      .then((res: Listing[]) => {
+        const filterz = filters.filters;
+
+        let result: Listing[] = res;
+
+        for (const filter in filterz) {
+          const currentFilter = filterz[filter as keyof typeof filterz];
+          if (currentFilter !== null) {
+            result = res.filter(currentFilter);
+            console.log("nakraq ", result);
+          }
+        }
+        setListings(result);
         setIsloading(false);
       });
-  }, []);
+  }, [filters.filters]);
 
   return (
     <div className={styles.homePageWrapper}>

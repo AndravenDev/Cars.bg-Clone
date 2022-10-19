@@ -1,18 +1,20 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 interface Filters {
-  price: number[];
+  price: any | null;
 }
 
 interface FilterContxt {
   filters: Filters | undefined;
-  setFilters: React.Dispatch<React.SetStateAction<Filters | undefined>>;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
 }
 
 const FiltersContext = createContext<FilterContxt | undefined>(undefined);
 
 export const FiltersContextProvider = ({ children }: PropsWithChildren) => {
-  const [filters, setFilters] = useState<Filters | undefined>(undefined);
+  const [filters, setFilters] = useState<Filters>({
+    price: null,
+  });
 
   return (
     <FiltersContext.Provider value={{ filters, setFilters }}>
