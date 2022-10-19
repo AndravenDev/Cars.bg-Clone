@@ -27,7 +27,7 @@ export const PriceFilter = () => {
   return (
     <Box sx={{ width: 500 }}>
       <Slider
-        sx={{ marginTop: "40px" }}
+        sx={{ paddingTop: "80px" }}
         getAriaLabel={() => "Price range"}
         value={value}
         onChange={handleChange}

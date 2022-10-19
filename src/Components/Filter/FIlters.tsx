@@ -2,6 +2,9 @@ import Chip from "@mui/material/Chip";
 import { useState } from "react";
 import { Modal } from "../Dialog/Modal";
 import styles from "./Filters.module.scss";
+import Button from "@mui/material/Button";
+import { useFilters } from "../../Context/filter-context";
+
 export const Filters = () => {
   const filters = [
     { label: "Body Type", name: "bodyType" },
@@ -20,9 +23,14 @@ export const Filters = () => {
 
   const [open, setOpen] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("");
+  const filterContext = useFilters();
 
   const onClose = () => {
     setOpen(false);
+  };
+
+  const clearFilters = () => {
+    filterContext.clearFilters();
   };
 
   return (
@@ -41,6 +49,7 @@ export const Filters = () => {
           ></Chip>
         );
       })}
+      <Button onClick={clearFilters}>Clear</Button>
     </div>
   );
 };

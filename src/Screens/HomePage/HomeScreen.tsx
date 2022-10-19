@@ -12,6 +12,8 @@ export const HomePage = () => {
 
   const filters = useFilters();
 
+  console.log(filters.filters);
+
   useEffect(() => {
     setIsloading(true);
     fetch("https://localhost:7133/cars")

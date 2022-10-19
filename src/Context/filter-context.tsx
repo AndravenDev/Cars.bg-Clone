@@ -7,17 +7,23 @@ interface Filters {
 interface FilterContxt {
   filters: Filters | undefined;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+  clearFilters: () => void;
 }
 
 const FiltersContext = createContext<FilterContxt | undefined>(undefined);
 
 export const FiltersContextProvider = ({ children }: PropsWithChildren) => {
-  const [filters, setFilters] = useState<Filters>({
+  const initalFilterState = {
     price: null,
-  });
+  };
+  const [filters, setFilters] = useState<Filters>(initalFilterState);
+
+  const clearFilters = () => {
+    setFilters(initalFilterState);
+  };
 
   return (
-    <FiltersContext.Provider value={{ filters, setFilters }}>
+    <FiltersContext.Provider value={{ filters, setFilters, clearFilters }}>
       {children}
     </FiltersContext.Provider>
   );
