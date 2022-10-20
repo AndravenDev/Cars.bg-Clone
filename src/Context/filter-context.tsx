@@ -1,7 +1,11 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { Listing } from "../Interfaces";
 
 export interface Filters {
-  price: any | null;
+  price: {
+    value: number[];
+    filterFunction: (listing: Listing) => boolean;
+  } | null;
 }
 
 interface FilterContxt {

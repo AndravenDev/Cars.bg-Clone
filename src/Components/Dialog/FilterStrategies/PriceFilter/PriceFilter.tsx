@@ -18,8 +18,11 @@ export const PriceFilter = () => {
   const submit = () => {
     console.log("filter value ", value);
     filters.setFilters({
-      price: (car: Listing) => {
-        return car.price > value[0] && car.price < value[1];
+      price: {
+        value: value,
+        filterFunction: (car: Listing) => {
+          return car.price > value[0] && car.price < value[1];
+        },
       },
     });
   };
@@ -29,7 +32,7 @@ export const PriceFilter = () => {
       <Slider
         sx={{ paddingTop: "80px" }}
         getAriaLabel={() => "Price range"}
-        value={value}
+        value={filters.filters?.price?.value ?? value}
         onChange={handleChange}
         valueLabelDisplay="on"
         min={0}

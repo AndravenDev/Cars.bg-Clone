@@ -21,7 +21,7 @@ export const HomePage = () => {
       for (const filter in filters) {
         const currentFilter = filters[filter as keyof typeof filters];
         if (currentFilter !== null) {
-          result = listings.filter(currentFilter);
+          result = listings.filter(currentFilter.filterFunction);
           console.log("nakraq ", result);
         }
       }
