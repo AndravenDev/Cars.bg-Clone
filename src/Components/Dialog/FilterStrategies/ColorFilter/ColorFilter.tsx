@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const ColorFilter = () => {
+interface ColorFilterProps {
+  onClose: () => void;
+}
+
+export const ColorFilter = ({ onClose }: ColorFilterProps) => {
   return (
     <div>
       <Chip label="Black" />

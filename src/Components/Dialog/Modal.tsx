@@ -23,25 +23,25 @@ interface ModalProps {
   currentFilter: string;
 }
 
-const getFilterComponent = (currentFilter: string) => {
-  const filters: FilterStrategy = {
-    bodyType: () => <BodyTypeFilter />,
-    brand: () => <BrandFilter />,
-    fuel: () => <FuelFilter />,
-    gearbox: () => <GearboxFilter />,
-    price: () => <PriceFilter />,
-    year: () => <YearFilter />,
-    location: () => <LocationFilter />,
-    color: () => <ColorFilter />,
-    doorCount: () => <DoorCountFilter />,
-    horsepower: () => <HorsepowerFilter />,
-    publishedDate: () => <PublishDateFilter />,
-    condition: () => <ConditionFilter />,
-  };
-  return filters[currentFilter as keyof FilterStrategy];
-};
-
 export const Modal = ({ isOpen, onClose, currentFilter }: ModalProps) => {
+  const getFilterComponent = (currentFilter: string) => {
+    const filters: FilterStrategy = {
+      bodyType: () => <BodyTypeFilter onClose={onClose} />,
+      brand: () => <BrandFilter onClose={onClose} />,
+      fuel: () => <FuelFilter onClose={onClose} />,
+      gearbox: () => <GearboxFilter onClose={onClose} />,
+      price: () => <PriceFilter onClose={onClose} />,
+      year: () => <YearFilter onClose={onClose} />,
+      location: () => <LocationFilter onClose={onClose} />,
+      color: () => <ColorFilter onClose={onClose} />,
+      doorCount: () => <DoorCountFilter onClose={onClose} />,
+      horsepower: () => <HorsepowerFilter onClose={onClose} />,
+      publishedDate: () => <PublishDateFilter onClose={onClose} />,
+      condition: () => <ConditionFilter onClose={onClose} />,
+    };
+    return filters[currentFilter as keyof FilterStrategy];
+  };
+
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle>{currentFilter}</DialogTitle>

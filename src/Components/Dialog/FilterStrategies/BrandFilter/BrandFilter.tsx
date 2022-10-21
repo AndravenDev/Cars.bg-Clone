@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const BrandFilter = () => {
+interface BrandFilterProps {
+  onClose: () => void;
+}
+
+export const BrandFilter = ({ onClose }: BrandFilterProps) => {
   return (
     <div>
       <Chip label="BMW" />

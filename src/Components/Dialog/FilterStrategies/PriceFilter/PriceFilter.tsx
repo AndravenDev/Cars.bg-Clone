@@ -6,7 +6,11 @@ import { useState } from "react";
 import { useFilters } from "../../../../Context/filter-context";
 import { Listing } from "../../../../Interfaces";
 
-export const PriceFilter = () => {
+interface PriceFilterProps {
+  onClose: () => void;
+}
+
+export const PriceFilter = ({ onClose }: PriceFilterProps) => {
   const [value, setValue] = useState<number[]>([0, 100000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -25,6 +29,8 @@ export const PriceFilter = () => {
         },
       },
     });
+
+    onClose();
   };
 
   return (

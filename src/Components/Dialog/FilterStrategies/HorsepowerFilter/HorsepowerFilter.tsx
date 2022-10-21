@@ -2,7 +2,11 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { useState } from "react";
 
-export const HorsepowerFilter = () => {
+interface HorsepowerFilterProps {
+  onClose: () => void;
+}
+
+export const HorsepowerFilter = ({ onClose }: HorsepowerFilterProps) => {
   const [value, setValue] = useState<number[]>([20, 837]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {

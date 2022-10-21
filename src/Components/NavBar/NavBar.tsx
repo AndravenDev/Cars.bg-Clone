@@ -18,7 +18,12 @@ export const NavBar = () => {
 
           <span>
             <FavoriteBorderIcon className={styles.fav} />
-            <ImportExportIcon className={styles.sortIcon} />
+            <ImportExportIcon
+              onClick={() => {
+                console.log("aaa");
+              }}
+              className={styles.sortIcon}
+            />
             <SearchIcon />
           </span>
         </div>

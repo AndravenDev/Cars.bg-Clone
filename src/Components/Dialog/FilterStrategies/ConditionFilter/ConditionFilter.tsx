@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const ConditionFilter = () => {
+interface ConditionFilterProps {
+  onClose: () => void;
+}
+
+export const ConditionFilter = ({ onClose }: ConditionFilterProps) => {
   return (
     <div>
       <Chip label="New" />

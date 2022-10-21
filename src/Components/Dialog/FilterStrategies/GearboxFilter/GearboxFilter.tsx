@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const GearboxFilter = () => {
+interface GearboxFilterProps {
+  onClose: () => void;
+}
+
+export const GearboxFilter = ({ onClose }: GearboxFilterProps) => {
   return (
     <div>
       <Chip label="Automatic" />

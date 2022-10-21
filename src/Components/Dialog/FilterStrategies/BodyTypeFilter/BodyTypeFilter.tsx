@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const BodyTypeFilter = () => {
+interface BodyTypeFilterProps {
+  onClose: () => void;
+}
+
+export const BodyTypeFilter = ({ onClose }: BodyTypeFilterProps) => {
   return (
     <div>
       <Chip label="Hatchback" />

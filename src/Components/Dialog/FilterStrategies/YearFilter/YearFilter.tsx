@@ -2,7 +2,11 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { useState } from "react";
 
-export const YearFilter = () => {
+interface YearFilterProps {
+  onClose: () => void;
+}
+
+export const YearFilter = ({ onClose }: YearFilterProps) => {
   const [value, setValue] = useState<number[]>([20, 37]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {

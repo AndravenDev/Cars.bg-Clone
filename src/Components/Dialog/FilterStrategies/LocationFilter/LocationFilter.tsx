@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const LocationFilter = () => {
+interface LocationFilterProps {
+  onClose: () => void;
+}
+
+export const LocationFilter = ({ onClose }: LocationFilterProps) => {
   return (
     <div>
       <Chip label="Varna" />

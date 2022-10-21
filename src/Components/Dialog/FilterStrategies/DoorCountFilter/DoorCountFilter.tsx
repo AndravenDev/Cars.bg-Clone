@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const DoorCountFilter = () => {
+interface DoorCountFilterProps {
+  onClose: () => void;
+}
+
+export const DoorCountFilter = ({ onClose }: DoorCountFilterProps) => {
   return (
     <div>
       <Chip label="2" />

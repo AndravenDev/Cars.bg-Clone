@@ -4,7 +4,7 @@ import { Listing } from "../../Interfaces";
 import styles from "./HomePage.module.scss";
 import HistoryIcon from "@mui/icons-material/History";
 import { Filters, useFilters } from "../../Context/filter-context";
-import { FiltersRow } from "../../Components/Filter/FIlters";
+import { FiltersRow } from "../../Components/Filter/FIltersRow";
 
 export const HomePage = () => {
   const [listings, setListings] = useState<Listing[]>([]);

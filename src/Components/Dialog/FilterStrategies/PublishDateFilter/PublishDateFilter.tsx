@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const PublishDateFilter = () => {
+interface PublishDateFilterProps {
+  onClose: () => void;
+}
+
+export const PublishDateFilter = ({ onClose }: PublishDateFilterProps) => {
   return (
     <div>
       <Chip label="Last day" />

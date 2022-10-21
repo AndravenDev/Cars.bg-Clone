@@ -1,6 +1,10 @@
 import Chip from "@mui/material/Chip";
 
-export const FuelFilter = () => {
+interface FuelFilterProps {
+  onClose: () => void;
+}
+
+export const FuelFilter = ({ onClose }: FuelFilterProps) => {
   return (
     <div>
       <Chip label="Diesel" />
