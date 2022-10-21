@@ -11,4 +11,6 @@ export interface Listing{
     publisher: string,
     location: string,
     price: number
+    bodyType: string;
+    brand: string
 }

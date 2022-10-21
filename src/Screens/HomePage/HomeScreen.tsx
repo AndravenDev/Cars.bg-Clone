@@ -5,14 +5,14 @@ import styles from "./HomePage.module.scss";
 import HistoryIcon from "@mui/icons-material/History";
 import { Filters, useFilters } from "../../Context/filter-context";
 import { FiltersRow } from "../../Components/Filter/FIltersRow";
+import { useCriterias } from "../../Context/criteria-context";
 
 export const HomePage = () => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [isLoading, setIsloading] = useState(true);
 
   const filters = useFilters();
-
-  console.log(filters.filters);
+  const criterias = useCriterias();
 
   const applyFilters = (listings: Listing[], filters?: Filters): Listing[] => {
     let result: Listing[] = listings;
@@ -30,6 +30,19 @@ export const HomePage = () => {
     return result;
   };
 
+  const applyCriterias = (listings: Listing[]) => {
+    const bodyTypeCriterias = new Set<string>();
+    const brandCriterias = new Set<string>();
+    listings.forEach((l) => {
+      bodyTypeCriterias.add(l.bodyType);
+      brandCriterias.add(l.brand);
+    });
+    criterias.setCriterias({
+      bodyType: Array.from(bodyTypeCriterias),
+      brand: Array.from(brandCriterias),
+    });
+  };
+
   useEffect(() => {
     setIsloading(true);
     fetch("https://localhost:7133/cars")
@@ -38,7 +51,7 @@ export const HomePage = () => {
         const currentFilters = filters.filters;
 
         setListings(applyFilters(res, currentFilters));
-
+        applyCriterias(res);
         setIsloading(false);
       });
   }, [filters.filters]);
