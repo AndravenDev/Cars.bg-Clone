@@ -1,15 +1,17 @@
 import Chip from "@mui/material/Chip";
+import { useCriterias } from "../../../../Context/criteria-context";
 
 interface ConditionFilterProps {
   onClose: () => void;
 }
 
 export const ConditionFilter = ({ onClose }: ConditionFilterProps) => {
+  const criterias = useCriterias();
   return (
     <div>
-      <Chip label="New" />
-      <Chip label="Second Hand" />
-      <Chip label="Questionable" />
+      {criterias.criterias.condition?.map((condition) => {
+        return <Chip label={condition} key={condition} />;
+      })}
     </div>
   );
 };

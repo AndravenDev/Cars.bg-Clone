@@ -3,6 +3,10 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 interface Criterias {
   bodyType?: string[];
   brand?: string[];
+  fuel?: string[];
+  location?: string[];
+  color?: string[];
+  condition?: string[];
 }
 
 interface CriteriaContext {

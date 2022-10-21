@@ -33,13 +33,25 @@ export const HomePage = () => {
   const applyCriterias = (listings: Listing[]) => {
     const bodyTypeCriterias = new Set<string>();
     const brandCriterias = new Set<string>();
+    const fuelCriterias = new Set<string>();
+    const locationCriteria = new Set<string>();
+    const colorCriteria = new Set<string>();
+    const conditionCriteria = new Set<string>();
     listings.forEach((l) => {
       bodyTypeCriterias.add(l.bodyType);
       brandCriterias.add(l.brand);
+      fuelCriterias.add(l.fuel);
+      locationCriteria.add(l.location);
+      colorCriteria.add(l.color);
+      conditionCriteria.add(l.condition);
     });
     criterias.setCriterias({
       bodyType: Array.from(bodyTypeCriterias),
       brand: Array.from(brandCriterias),
+      fuel: Array.from(fuelCriterias),
+      location: Array.from(locationCriteria),
+      color: Array.from(colorCriteria),
+      condition: Array.from(conditionCriteria),
     });
   };
 

@@ -12,5 +12,6 @@ export interface Listing{
     location: string,
     price: number
     bodyType: string;
-    brand: string
+    brand: string;
+    color: string
 }
